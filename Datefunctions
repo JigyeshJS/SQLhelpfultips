@@ -1,0 +1,40 @@
+ATHEN DATE FUNCTIONS TIPS
+
+
+*/
+
+-- get current date
+select current_date
+
+
+-- add two days in current date
+select current_date + interval '2' day
+
+
+-- add two days in specified day
+select date '2020-08-30' + interval '2' day
+
+
+-- add two months in specified day
+select date '2020-08-30' + interval '2' month
+
+
+-- get 1st date of current month
+select date_trunc('month',CURRENT_DATE)
+
+
+-- get last date for previous month
+select DATE_ADD('day',-1, date_trunc('month',CURRENT_DATE))
+
+
+-- add 3 months to current date
+SELECT date_add('MONTH',3,current_date)
+
+
+-- format date
+select date_format( DATE_ADD('day',-1, date_trunc('month',CURRENT_DATE)),'%M %Y')
+
+
+-- Sring to date
+select date(date_parse('August 2020','%M %Y'))
+-- output : 2020-08-01
